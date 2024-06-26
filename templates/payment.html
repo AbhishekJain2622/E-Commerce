@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <form action="/paymenthandler/" method="POST">
+        <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="{{ razorpay_merchant_key }}"
+            data-amount="{{ amount_in_paisa }}"
+            data-currency="INR"
+            data-order_id="{{ razorpay_order_id }}"
+            data-buttontext="Pay with Razorpay"
+            data-name="Your Company Name"
+            data-description="Purchase Description"
+            data-image="https://your-logo-url"
+            data-prefill.name="Your Name"
+            data-prefill.email="your.email@example.com"
+            data-prefill.contact="9999999999"
+            data-theme.color="#F37254"
+        ></script>
+        <input type="hidden" name="address" value="{{ address }}">
+        <input type="hidden" name="phone" value="{{ phone }}">
+    </form>
+</body>
+</html>
